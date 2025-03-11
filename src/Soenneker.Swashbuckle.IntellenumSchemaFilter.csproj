@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Extensions.Enumerable" Version="3.0.481" />
+        <PackageReference Include="Soenneker.Extensions.Enumerable" Version="3.0.483" />
         <PackageReference Include="Soenneker.Reflection.Cache" Version="3.0.479" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.3.1" />
     </ItemGroup>
