@@ -1,6 +1,7 @@
 ﻿using System;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
+using System.Collections.Generic;
+using System.Text.Json.Nodes;
+using Microsoft.OpenApi;
 using Soenneker.Extensions.Enumerable;
 using Soenneker.Reflection.Cache;
 using Soenneker.Reflection.Cache.Fields;
@@ -20,9 +21,11 @@ public sealed class IntellenumSchemaFilter : ISchemaFilter
     {
         _reflectionCache = new ReflectionCache();
     }
-
-    public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+    
+    public void Apply(IOpenApiSchema schema, SchemaFilterContext context)
     {
+        var mutator = (OpenApiSchema)schema;
+
         Type? type = context.Type;
 
         CachedType cachedType = _reflectionCache.GetCachedType(type);
@@ -35,7 +38,7 @@ public sealed class IntellenumSchemaFilter : ISchemaFilter
         if (fields.IsNullOrEmpty())
             return;
 
-        var openApiValues = new OpenApiArray();
+        var openApiValues = new List<JsonNode>();
 
         foreach (CachedField field in fields)
         {
@@ -47,13 +50,12 @@ public sealed class IntellenumSchemaFilter : ISchemaFilter
             if (enumValue == null)
                 continue;
 
-            var openApiObj = new OpenApiString(enumValue);
-            openApiValues.Add(openApiObj);
+            openApiValues.Add(JsonValue.Create(enumValue));
         }
 
         // See https://swagger.io/docs/specification/data-models/enums/
-        schema.Type = "string";
-        schema.Enum = openApiValues;
-        schema.Properties = null;
+        mutator.Type = JsonSchemaType.String;
+        mutator.Enum = openApiValues;
+        mutator.Properties = null;
     }
 }
