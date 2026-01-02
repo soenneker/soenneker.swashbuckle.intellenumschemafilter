@@ -14,7 +14,7 @@
         <AssemblyName>Soenneker.Swashbuckle.IntellenumSchemaFilter</AssemblyName>
         <PackageId>Soenneker.Swashbuckle.IntellenumSchemaFilter</PackageId>
         <PackageTags>swashbuckle intellenumschemafilter intellenum schema filter swagger openapi util csharp dotnet c# .net</PackageTags>
-        <Copyright>Copyright © 2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2025-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
