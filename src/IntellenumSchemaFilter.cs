@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using Microsoft.OpenApi;
@@ -11,7 +11,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace Soenneker.Swashbuckle.IntellenumSchemaFilter;
 
 /// <summary>
-/// A Swashbuckle Schema filter for Intellenum
+/// A Swashbuckle Schema filter for Intellenum and Soenneker.Gen.EnumValues
 /// </summary>
 public sealed class IntellenumSchemaFilter : ISchemaFilter
 {
@@ -30,7 +30,7 @@ public sealed class IntellenumSchemaFilter : ISchemaFilter
 
         CachedType cachedType = _reflectionCache.GetCachedType(type);
 
-        if (!cachedType.IsIntellenum)
+        if (!cachedType.IsEnumValue)
             return;
 
         CachedField[]? fields = cachedType.GetCachedFields();
