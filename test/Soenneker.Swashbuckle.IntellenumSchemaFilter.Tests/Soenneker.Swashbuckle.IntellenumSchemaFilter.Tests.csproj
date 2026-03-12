@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Swashbuckle.IntellenumSchemaFilter.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Swashbuckle.IntellenumSchemaFilter\Soenneker.Swashbuckle.IntellenumSchemaFilter.csproj" />
     </ItemGroup>
 
     <ItemGroup>
