@@ -1,18 +1,17 @@
-﻿using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Swashbuckle.IntellenumSchemaFilter.Tests;
 
-[Collection("Collection")]
-public class IntellenumSchemaFilterTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class IntellenumSchemaFilterTests : HostedUnitTest
 {
 
-    public IntellenumSchemaFilterTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public IntellenumSchemaFilterTests(Host host) : base(host)
     {
 
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
