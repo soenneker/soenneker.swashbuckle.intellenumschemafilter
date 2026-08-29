@@ -3,11 +3,16 @@
 [![](https://img.shields.io/nuget/dt/soenneker.swashbuckle.intellenumschemafilter.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.swashbuckle.intellenumschemafilter/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.swashbuckle.intellenumschemafilter/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.swashbuckle.intellenumschemafilter/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Swashbuckle.IntellenumSchemaFilter
-### A Swashbuckle Schema filter for Intellenum
+# Soenneker.Swashbuckle.IntellenumSchemaFilter
 
-## Installation
+A Swashbuckle Schema filter for Intellenum and Soenneker.Gen.EnumValues.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.Swashbuckle.IntellenumSchemaFilter
 ```
+
+## What you get
+
+- `IntellenumSchemaFilter` — A Swashbuckle Schema filter for Intellenum and Soenneker.Gen.EnumValues.
