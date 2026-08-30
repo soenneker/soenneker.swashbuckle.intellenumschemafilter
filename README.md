@@ -5,14 +5,45 @@
 
 # Soenneker.Swashbuckle.IntellenumSchemaFilter
 
-A Swashbuckle Schema filter for Intellenum and Soenneker.Gen.EnumValues.
+Generates string-enum OpenAPI schemas for Intellenum and `Soenneker.Gen.EnumValues` value types.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Swashbuckle.IntellenumSchemaFilter
 ```
 
-## What you get
+## Registration
 
-- `IntellenumSchemaFilter` — A Swashbuckle Schema filter for Intellenum and Soenneker.Gen.EnumValues.
+```csharp
+using Soenneker.Swashbuckle.IntellenumSchemaFilter;
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SchemaFilter<IntellenumSchemaFilter>();
+});
+```
+
+## Example value type
+
+```csharp
+using Soenneker.Gen.EnumValues;
+
+[EnumValue<string>]
+public sealed partial class Orientation
+{
+    public static readonly Orientation Horizontal = new("horizontal");
+    public static readonly Orientation Vertical = new("vertical");
+}
+```
+
+With the filter registered, a property of type `Orientation` is represented as a string enum:
+
+```yaml
+type: string
+enum:
+  - horizontal
+  - vertical
+```
+
+The values come from `ToString()` on static fields whose type exactly matches the generated enum-value type. The filter replaces the object-shaped schema properties with the discovered string values. It does not change runtime JSON serialization; configure the generator's serializer support separately when needed.
